@@ -1,0 +1,13 @@
+# Dockerfile para el backend
+
+# Usar la imagen base de OpenJDK 17
+FROM openjdk:17-jdk-slim
+
+# Crear un volumen temporal
+VOLUME /tmp
+
+# Copiar el archivo JAR generado en el contenedor
+COPY target/demo-0.0.1-SNAPSHOT.jar app.jar
+
+# Definir el punto de entrada para ejecutar la aplicación
+ENTRYPOINT ["java","-jar","/app.jar"]

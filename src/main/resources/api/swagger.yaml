@@ -1,0 +1,109 @@
+openapi: 3.0.0
+info:
+  title: Item Management API
+  version: 1.0.0
+paths:
+  /items:
+    get:
+      summary: Listar todos los items
+      responses:
+        '200':
+          description: Lista de items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Item'
+    post:
+      summary: Crear un nuevo item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+      responses:
+        '201':
+          description: Item creado
+  /items/{id}:
+    get:
+      summary: Obtener un item por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Un item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+    put:
+      summary: Actualizar un item por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+      responses:
+        '200':
+          description: Item actualizado
+    delete:
+      summary: Eliminar un item por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Item borrado
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador de Item
+        name:
+          type: string
+          description: Nombre de Item
+        type:
+          type: string
+          enum: [bebida, comida, salsas, especies]
+          description: Tipo de Item
+        requires_refrigeration:
+          type: boolean
+          description: Requiere refrigeracion
+        capacity:
+          type: integer
+          enum: [100, 1000]
+          description: Capacidad del Item
+        container:
+          type: string
+          enum: [botella, caja]
+          description: Contenedor del Item
+        client_name:
+          type: string
+          description: Nombre del cliente que ha lanzado el comando de creacion
+        timestamp:
+          type: string
+          format: date-time
+          description: Fecha y hora de la operacion
+        status:
+          type: string
+          enum: [WAITING, CREATED, DELETED]
+          description: Estado de la peticion
