@@ -59,6 +59,7 @@ class ItemServiceTest {
         ItemEntity itemEntity = ItemEntity.builder()
                 .id(1L)
                 .name("NewItem")
+                .status("CREATED")
                 .build();
 
         when(itemDomainService.isValidItem(any(Item.class))).thenReturn(Arrays.asList());
@@ -94,7 +95,7 @@ class ItemServiceTest {
 
         ItemEntity itemEntity = ItemEntity.builder()
                 .id(1L)
-                .name("Item1")
+                .name("UpdatedItem")
                 .build();
 
         when(itemRepository.findById(1L)).thenReturn(Optional.of(itemEntity));

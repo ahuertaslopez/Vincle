@@ -13,21 +13,26 @@ Esta es una aplicacion DEMO correspondiente al Ejercicio 2 expuesto en el archiv
 
 ### Instalación
 
-1. Descomprimir proyecto
++ Clona el repositorio
 
-2. Compilar proyecto:
+```properties
+git clone https://github.com/ahuertaslopez/Vincle
+cd demo
+```
 
-    ```sh
-    mvn clean install
-    ```
++ Compilar proyecto:
 
-3. Ejecutar aplicación:
+```properties
+mvn clean install
+```
 
-    ```sh
-    mvn spring-boot:run
-    ```
++ Ejecutar aplicación:
 
-4. La aplicación estará funcionando a través de `http://localhost:8080/items/`
+```properties
+mvn spring-boot:run
+```
+
++ La aplicación estará funcionando a través de `http://localhost:8080/items/`
 
 ### Configuración
 
@@ -44,12 +49,15 @@ spring.jpa.hibernate.ddl-auto=update
 
 ## Aclaraciones
 
-1. Se aporta dentro del proyecto los siguientes ficheros:
- * Colección Postman con los métodos del CRUD desarrollado: `DEMO-Vincle.postman_collection.json`
- * Archivo DockerFile para dockerizar el proyecto
- * Archivo docker-compose.yml, para unificar en una misma imagen docker la parte back y la parte front desarrollada
- * Carpeta Frontend, con la interface gráfica para visualizar y analizar la colección de items. Por favor, acuda a frontend/README.md para más información.
++ Se aporta dentro del proyecto los siguientes ficheros:
 
-2. Debido a problemas técnicos con la máquina en la que se ha desarrollado esta demo, no se ha podido probar la parte de dockerización.
+```properties
+- Colección Postman con los métodos del CRUD desarrollado: `DEMO-Vincle.postman_collection.json`
+- Archivo DockerFile para dockerizar el proyecto
+- Archivo docker-compose.yml, para unificar en una misma imagen docker la parte back y la parte front desarrollada
+- Carpeta Frontend, con la interface gráfica para visualizar y analizar la colección de items. Por favor, acuda a frontend/README.md para más información.
+```
 
-3. Dentro de la parte test, se ha puesto una aplicación java (`com.vincle.ahl.demo.simulatorItemSimulator.java`) para la creación automática y aleatoria de items a partir del desarrollo realizado.
++ Debido a problemas técnicos con la máquina en la que se ha desarrollado esta demo, no se ha podido probar la parte de dockerización.
+
++ Dentro de la parte test, se ha puesto una aplicación java (`com.vincle.ahl.demo.simulatorItemSimulator.java`) para la creación automática y aleatoria de items a partir del desarrollo realizado.
